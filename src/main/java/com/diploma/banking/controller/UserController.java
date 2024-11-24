@@ -3,6 +3,7 @@ package com.diploma.banking.controller;
 import com.diploma.banking.model.dto.UserResponseDto;
 import com.diploma.banking.model.dto.input.UserInput;
 import com.diploma.banking.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserResponseDto> register(@RequestBody UserInput user) {
+    public ResponseEntity<UserResponseDto> register(@RequestBody @Valid UserInput user) {
+        System.out.println(user.login().length());
         return ResponseEntity.ok(
                 UserResponseDto.from(userService.createUser(user))
         );

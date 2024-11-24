@@ -2,18 +2,18 @@ package com.diploma.banking.model.dto.input;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 public record UserInput(
         @NotNull
         @NotEmpty
-        @Length(min = 3, max = 20)
+        @Size(min = 3, max = 20)
         String login,
         @NotNull
         @NotEmpty
-        @Length(min = 3, max = 20)
+        @Size(min = 3, max = 20)
         String password,
         @NotNull
         @NotEmpty
