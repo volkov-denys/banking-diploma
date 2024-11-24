@@ -46,8 +46,8 @@ public class UserCreationSimulation extends Simulation {
         double userRampUpPerInterval = 50;
         double rampUpIntervalSeconds = 10;
 
-        int totalRampUptimeSeconds = 2;
-        int steadyStateDurationSeconds = 4;
+        int totalRampUptimeSeconds = 30;
+        int steadyStateDurationSeconds = 60;
         return rampUsersPerSec(userRampUpPerInterval / (rampUpIntervalSeconds / 60)).to(totalUserCount)
                 .during(Duration.ofSeconds(totalRampUptimeSeconds + steadyStateDurationSeconds));
     }
@@ -64,7 +64,7 @@ public class UserCreationSimulation extends Simulation {
         Iterator<Map<String, Object>> iterator;
         iterator = Stream.generate(() -> {
                     Map<String, Object> stringObjectMap = new HashMap<>();
-                    stringObjectMap.put("login", faker.name().username() + faker.name().username() + faker.name().username());
+                    stringObjectMap.put("login", faker.name().username());
                     stringObjectMap.put("password", faker.name().fullName());
                     stringObjectMap.put("name", faker.name().firstName());
                     stringObjectMap.put("surname", faker.name().lastName());

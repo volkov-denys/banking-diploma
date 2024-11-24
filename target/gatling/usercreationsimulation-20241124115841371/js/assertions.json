@@ -1,0 +1,27 @@
+{
+  "simulation": "com.diploma.banking.UserCreationSimulation",
+  "simulationId": "usercreationsimulation",
+  "start": 1732449521371,
+  "description": "",
+  "scenarios": ["Load Test Registering User"],
+  "assertions": [
+{
+  "path": "Global",
+  "target": "max of response time",
+  "condition": "is less than or equal to",
+  "expectedValues": [10000.0],
+  "result": false,
+  "message": "Global: max of response time is less than or equal to 10000.0",
+  "actualValue": [23258.0]
+},
+{
+  "path": "Global",
+  "target": "percentage of successful events",
+  "condition": "is greater than",
+  "expectedValues": [90.0],
+  "result": false,
+  "message": "Global: percentage of successful events is greater than 90.0",
+  "actualValue": [89.08]
+}
+  ]
+}
