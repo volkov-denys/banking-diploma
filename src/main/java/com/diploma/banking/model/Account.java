@@ -20,10 +20,14 @@ public class Account {
     @JoinColumn(name = "user_id")
     private User user;
 
+    private static Long idCounter = 0L;
+
     @Deprecated
     protected Account() {}
 
     public Account(String number, AccountType type, Double amount, Double apy, LocalDate createdAt, User user) {
+        this.id = idCounter++;
+        this.number = number;
         this.type = type;
         this.amount = amount;
         this.apy = apy;
@@ -65,6 +69,10 @@ public class Account {
 
     public void setApy(Double apy) {
         this.apy = apy;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public enum AccountType {
